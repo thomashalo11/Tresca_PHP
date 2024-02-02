@@ -25,4 +25,6 @@ if($result -> num_rows > 0) {
     // Visualizza un messaggio di errore se le credenziali non sono valide
     echo "Username e/o password non corretti";
 }
+
+$conn->close()
 ?>
