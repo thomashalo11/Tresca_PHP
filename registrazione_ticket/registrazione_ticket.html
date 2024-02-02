@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
-        <title>Registrazione Cliente</title>
+        <title>Registrazione Ticket</title>
       </head>
      <body>
            <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -16,24 +16,34 @@
       
 
     <div class="container">
-        <h2>Registrazione Clienti</h2>
+        <h2>Registrazione Ticket</h2>
         
-        <form action="registrazione_cliente.php" method="post">
+        <form action="registrazione_ticket.php" method="post">
+            <label for="registi">Seleziona il tuo nome e cognome</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-lg example" name="registi" id="registi">
+                <option value="">Massimo Venier</option>
+                <option value="Michael Curtiz">Michael Curtiz</option>
+                <option value="Roberto Benigni">Roberto Benigni</option>
+            </select>
+            <input type="submit" name="submit" value="Invia">
+        </form>
+
+        <form action="registrazione_ticket.php" method="post">
         <div class="form-group">
-            <label for="username">Nome:</label>
+            <label for="username">Data:</label>
             <input type="text" class="form-control" id="nome" name="nome" required>
         </div>
         <div class="form-group">
-            <label for="cognome">Cognome:</label>
+            <label for="cognome">Richiesta:</label>
             <input type="cognome" class="form-control" id="cognome" name="cognome" required>
         </div>
         <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="username" class="form-control" id="username" name="username" required>
+            <label for="username">Stato:</label>
+            <input type="specializzazione" class="form-control" id="specializzazione" name="specializzazione" required>
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <label for="username">Cliente:</label>
+            <input type="cliente" class="form-control" id="cliente" name="cliente" required>
         </div>
         <div class="form-group">                  
             <input class="btn btn-primary" type="submit" value="Invia">
