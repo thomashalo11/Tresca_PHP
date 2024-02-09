@@ -12,6 +12,7 @@ if($conn -> connect_error)
 $data = $_POST["data"];
 $richiesta = $_POST["richiesta"];
 $cliente = "SELECT * FROM clienti";
+
 // Prima di procedere verificare la correttezza sintattica del comando assegnato alla variabile $sql con echo($sql)
 $sql = "SELECT * FROM tecnici";
 $result = $conn -> query($sql);
@@ -24,6 +25,9 @@ if($result -> num_rows > 0) {
     // Creazione query di comando sql INSERT INTO
     $sql = "INSERT INTO tecnici (nome, cognome, specializzazione)";
     $sql.= "VALUES ('{$nome}','{$cognome}','{$specializzazione}');";
+    // usernome Cliente
+    $usernameCliente = "SELECT codice FROM clienti WHERE username={$username}";
+    
 
     $result = $conn -> query($sql) or die ("Query inserimento tecnico fallita");
     // Visualizzazione tabella database aggiornata
@@ -34,7 +38,7 @@ if($result -> num_rows > 0) {
         echo "<td>{$riga['nome']}</td>";
     }
 
-    $sql = "SELECT codice, nome, congome FROM clienti";
+    $sql = "SELECT codice, nome, cognome FROM clienti";
     $tab = $conn -> query($sql);
 }
 $conn->close()

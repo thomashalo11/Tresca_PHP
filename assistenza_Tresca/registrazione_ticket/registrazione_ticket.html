@@ -19,11 +19,11 @@
         <h2>Registrazione Ticket</h2>
         
         <form action="registrazione_ticket.php" method="post">
-            <label for="registi">Seleziona il tuo nome e cognome</label>
+            <label for="clienti">Seleziona il tuo nome e cognome</label>
             <select class="form-select form-select-sm" aria-label=".form-select-lg example" name="registi" id="registi">
-                <option value="">Massimo Venier</option>
-                <option value="Michael Curtiz">Michael Curtiz</option>
-                <option value="Roberto Benigni">Roberto Benigni</option>
+                <option value=""></option>
+                <option value="Michael Curtiz"></option>
+                <option value="Roberto Benigni"></option>
             </select>
             <input type="submit" name="submit" value="Invia">
         </form>
@@ -36,14 +36,6 @@
         <div class="form-group">
             <label for="cognome">Richiesta:</label>
             <input type="cognome" class="form-control" id="cognome" name="cognome" required>
-        </div>
-        <div class="form-group">
-            <label for="username">Stato:</label>
-            <input type="specializzazione" class="form-control" id="specializzazione" name="specializzazione" required>
-        </div>
-        <div class="form-group">
-            <label for="username">Cliente:</label>
-            <input type="cliente" class="form-control" id="cliente" name="cliente" required>
         </div>
         <div class="form-group">                  
             <input class="btn btn-primary" type="submit" value="Invia">
