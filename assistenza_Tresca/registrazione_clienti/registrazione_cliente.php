@@ -27,7 +27,7 @@ if($result -> num_rows > 0) {
     exit();
 }else {
     // Creazione query di comando sql INSERT INTO
-    $sql = "INSERT INTO clienti (nome, cognome, username, password)";
+    $sql = "INSERT INTO clienti (nome, cognome, username, password, email, telefono)";
     $sql.= "VALUES ('{$nome}','{$cognome}','{$username}','{$password}', {$email}, {$telefono});";
 
     $result = $conn -> query($sql) or die ("Query inserimento cliente fallita");
