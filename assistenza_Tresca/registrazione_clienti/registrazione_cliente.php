@@ -12,6 +12,8 @@ if($conn -> connect_error)
 $username = $_POST["username"];
 $password = $_POST["password"];
 $cognome = $_POST["cognome"];
+$email = $_POST["email"];
+$telefono = $_POST["telefono"];
 $nome = $_POST["nome"];
 // Query per verificare se esiste già un cliente con lo stesso username
 $sql = "SELECT * FROM clienti WHERE username = '{$username}'";
@@ -26,7 +28,7 @@ if($result -> num_rows > 0) {
 }else {
     // Creazione query di comando sql INSERT INTO
     $sql = "INSERT INTO clienti (nome, cognome, username, password)";
-    $sql.= "VALUES ('{$nome}','{$cognome}','{$username}','{$password}');";
+    $sql.= "VALUES ('{$nome}','{$cognome}','{$username}','{$password}', {$email}, {$telefono});";
 
     $result = $conn -> query($sql) or die ("Query inserimento cliente fallita");
     // Visualizzazione tabella database aggiornata
