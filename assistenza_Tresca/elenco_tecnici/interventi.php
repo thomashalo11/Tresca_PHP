@@ -10,25 +10,27 @@ $conn = new mysqli($hostname, $username, $password, $dbname);
 if($conn -> connect_error)
     die("Errore di connessione");
 
-$matricola = $_GET['matricola'];
+if(isset($_GET['matricola'])) {
+    $matricola = $conn -> real_escape_string($_GET['matricola']);
 
-// Impostazione comando sql per eseguire la query
-$query = "select * from interventi WHERE TECNICO={$matricola}";
 
-// Esecuzione della query tramite il metodo query
-// La query restituisce una tabella temporanea
-$tabella = $conn -> query($query);
+    // Impostazione comando sql per eseguire la query
+    $query = "SELECT * FROM interventi WHERE TECNICO = '{$matricola}'";
 
-if($tabella -> num_rows == 0)
-    echo("Non è presente nessun intervento");
-else {
-    echo "<table class='table table-dark' border='2px'><tr><td>Ticket</td><td>Tecnico</td><td>Data</td><td>Numero</td></tr>";
-    while($row = $tabella -> fetch_array(MYSQLI_NUM)) {
-        echo "<tr><td><a href='interventi.php?matricola={$row[0]}'>{$row[0]}</a></td><td>{$row[1]}</td><td>{$row[2]}</td><td>{$row[3]}</td></tr>";
+    // Esecuzione della query tramite il metodo query
+    // La query restituisce una tabella temporanea
+    $tabella = $conn -> query($query);
+
+    if($tabella -> num_rows == 0)
+        echo("Non è presente nessun intervento");
+    else {
+        echo "<table class='table table-dark' border='2px'><tr><td>Ticket</td><td>Tecnico</td><td>Data</td><td>Numero</td></tr>";
+        while($row = $tabella -> fetch_array(MYSQLI_NUM)) {
+            echo "<tr><td><a href='interventi.php?matricola={$row[0]}'>{$row[0]}</a></td><td>{$row[1]}</td><td>{$row[2]}</td><td>{$row[3]}</td></tr>";
+        }
+        echo "</table>";
     }
-    echo "</table>";
 }
-
 
 ?>
 <html>
